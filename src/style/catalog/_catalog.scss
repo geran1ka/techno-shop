@@ -1,0 +1,23 @@
+.catalog {
+  &__container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 72px 30px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 44px;
+  }
+
+  &__goods {
+  }
+
+  &__filter {
+  }
+
+  &__pagination {
+    grid-column: 1 / -1;
+  }
+}

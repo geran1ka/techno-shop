@@ -80,8 +80,8 @@
 
     <main class="main">
       <section class="catalog">
-        <div class="container catalog__container">
-          <h2 class="catatlog__title">Каталог</h2>
+        <div class="container">
+          <h2 class="catalog__title">Каталог</h2>
 
           <div class="catalog__container">
             <div class="catalog__goods goods">
@@ -307,148 +307,142 @@
             <aside class="catalog__filter filter">
               <form class="filter__form">
                 <h3 class="filter__title">Фильтры</h3>
+                <div class="filter__fields-list">
+                  <fieldset class="filter__field">
+                    <legend class="filter__field-title">Цена</legend>
 
-                <fieldset class="filter__field">
-                  <legend class="filter__field-title">Цена</legend>
+                    <div class="filter__flex">
+                      <label>
+                        <input
+                          class="filter__input"
+                          name="price-start"
+                          type="number"
+                          placeholder="от"
+                        />
+                      </label>
 
-                  <div class="filter__flex">
-                    <label>
-                      <input
-                        class="filter__input"
-                        name="price-start"
-                        type="number"
-                        placeholder="от"
-                      />
-                    </label>
+                      <label>
+                        <input
+                          class="filter__input"
+                          name="price-end"
+                          type="number"
+                          placeholder="до"
+                        />
+                      </label>
+                    </div>
+                  </fieldset>
 
-                    <label>
-                      <input
-                        class="filter__input"
-                        name="price-end"
-                        type="number"
-                        placeholder="до"
-                      />
-                    </label>
-                  </div>
-                </fieldset>
-
-                <fieldset class="filter__field">
-                  <legend class="filter__field-title">Категория</legend>
-
-                  <label>
-                    <select class="filter__select" name="category">
-                      <option class="filter__option" value="phone">
-                        Смартфоны
-                      </option>
-                      <option class="filter__option" value="tab">
-                        Планшет
-                      </option>
-                      <option class="filter__option" value="clock">
-                        Умные часы
-                      </option>
-                      <option class="filter__option" value="monoblock">
-                        Моноблоки
-                      </option>
-                      <option class="filter__option" value="notebook">
-                        Ноутбуки
-                      </option>
-                    </select>
-                  </label>
-                </fieldset>
-
-                <fieldset class="filter__field">
-                  <legend class="filter__field-title">Диагональ</legend>
-
-                  <div class="filter__flex">
-                    <label>
-                      <input
-                        class="filter__input"
-                        name="diagonal-start"
-                        type="number"
-                        placeholder="от"
-                      />
-                    </label>
+                  <fieldset class="filter__field">
+                    <legend class="filter__field-title">Категория</legend>
 
                     <label>
-                      <input
-                        class="filter__input"
-                        name="diagonal-end"
-                        type="number"
-                        placeholder="до"
-                      />
+                      <select
+                        class="filter__input filter__input_select"
+                        name="category"
+                      >
+                        <option class="filter__option" value="phone">
+                          Смартфоны
+                        </option>
+                        <option class="filter__option" value="tab">
+                          Планшет
+                        </option>
+                        <option class="filter__option" value="clock">
+                          Умные часы
+                        </option>
+                        <option class="filter__option" value="monoblock">
+                          Моноблоки
+                        </option>
+                        <option class="filter__option" value="notebook">
+                          Ноутбуки
+                        </option>
+                      </select>
                     </label>
-                  </div>
-                </fieldset>
+                  </fieldset>
 
-                <fieldset class="filter__field">
-                  <legend class="filter__field-title">Цвет</legend>
+                  <fieldset class="filter__field">
+                    <legend class="filter__field-title">Диагональ</legend>
 
-                  <div class="filter__flex">
-                    <label>
-                      <input
-                        class="filter__input"
-                        name="diagonal-start"
-                        type="text"
-                        placeholder="от"
-                      />
-                    </label>
+                    <div class="filter__flex">
+                      <label>
+                        <input
+                          class="filter__input"
+                          name="diagonal-start"
+                          type="number"
+                          placeholder="от"
+                        />
+                      </label>
 
-                    <label>
-                      <input
-                        class="filter__checkbox"
-                        name="color"
-                        type="checkbox"
-                        value="white"
-                      />Белый
-                    </label>
+                      <label>
+                        <input
+                          class="filter__input"
+                          name="diagonal-end"
+                          type="number"
+                          placeholder="до"
+                        />
+                      </label>
+                    </div>
+                  </fieldset>
 
-                    <label>
-                      <input
-                        class="filter__checkbox"
-                        name="color"
-                        type="checkbox"
-                        value="black"
-                      />Черный
-                    </label>
+                  <fieldset class="filter__field">
+                    <legend class="filter__field-title">Цвет</legend>
 
-                    <label>
-                      <input
-                        class="filter__checkbox"
-                        name="color"
-                        type="checkbox"
-                        value="silver"
-                      />Серебристый
-                    </label>
+                    <div class="filter__flex filter__flex_column">
+                      <label>
+                        <input
+                          class="filter__checkbox"
+                          name="color"
+                          type="checkbox"
+                          value="white"
+                        />Белый
+                      </label>
 
-                    <label>
-                      <input
-                        class="filter__checkbox"
-                        name="color"
-                        type="checkbox"
-                        value="red"
-                      />Красный
-                    </label>
+                      <label>
+                        <input
+                          class="filter__checkbox"
+                          name="color"
+                          type="checkbox"
+                          value="black"
+                        />Черный
+                      </label>
 
-                    <label>
-                      <input
-                        class="filter__checkbox"
-                        name="color"
-                        type="checkbox"
-                        value="green"
-                      />Зеленый
-                    </label>
+                      <label>
+                        <input
+                          class="filter__checkbox"
+                          name="color"
+                          type="checkbox"
+                          value="silver"
+                        />Серебристый
+                      </label>
 
-                    <label>
-                      <input
-                        class="filter__checkbox"
-                        name="color"
-                        type="checkbox"
-                        value="gold"
-                      />Золотой
-                    </label>
-                  </div>
-                </fieldset>
+                      <label>
+                        <input
+                          class="filter__checkbox"
+                          name="color"
+                          type="checkbox"
+                          value="red"
+                        />Красный
+                      </label>
 
+                      <label>
+                        <input
+                          class="filter__checkbox"
+                          name="color"
+                          type="checkbox"
+                          value="green"
+                        />Зеленый
+                      </label>
+
+                      <label>
+                        <input
+                          class="filter__checkbox"
+                          name="color"
+                          type="checkbox"
+                          value="gold"
+                        />Золотой
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
                 <button class="filter__btn-reset" type="reset">
                   Очистить все
                 </button>

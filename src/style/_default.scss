@@ -59,9 +59,14 @@ h1,
 h2,
 h3,
 p,
-figure,
+figure {
+  margin: 0;
+}
+
 fieldset {
   margin: 0;
+  padding: 0;
+  border: none;
 }
 
 iframe {
@@ -87,7 +92,7 @@ iframe {
 */
 
 .container {
-  max-width: 1240px;
-  padding: 0 30px;
+  max-width: 1920px;
+  padding: 0 50px;
   margin: 0 auto;
 }
