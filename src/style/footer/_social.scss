@@ -1,0 +1,21 @@
+.social {
+  display: flex;
+  gap: 20px;
+  &__item {
+  }
+
+  &__link {
+    color: $color-secondary;
+    outline-color: transparent;
+    outline-offset: 3px;
+    transition: color $transition, outline-color $transition;
+
+    &:hover {
+      color: $color-main;
+    }
+
+    &:focus-visible {
+      outline-color: $color-main;
+    }
+  }
+}

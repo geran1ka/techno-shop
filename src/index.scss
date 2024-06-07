@@ -3,5 +3,11 @@
 @import "style/var";
 @import "style/default";
 
+@import "style/header/header";
+@import "style/header/search";
+
 @import "style/catalog/catalog-page";
 @import "style/card";
+
+@import "style/footer/footer";
+@import "style/footer/social";
