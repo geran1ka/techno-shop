@@ -8,25 +8,26 @@ import { Navigation, Pagination, Thumbs, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
 
-const thumbSwiper = new Swiper(".card__image", {
-  spaceBetween: 10,
-  slidesPerView: 1,
+const thumbSwiper = new Swiper(".card__slider-thumb", {
+  spaceBetween: 44,
+  slidesPerView: 3,
   scrollbar: {
     el: ".swiper-scrollbar",
     draggable: true,
   },
-  modules: [Scrollbar],
+  modules: [Scrollbar, Navigation, Pagination],
 });
 
-new Swiper(".card__slider-thumd", {
-  spaceBetween: 44,
-  slidesPerView: 3,
+new Swiper(".card__image", {
+  spaceBetween: 10,
+  slidesPerView: 1,
   thumbs: {
     swiper: thumbSwiper,
     slideThumbActiveClass: ".card__thumb-btn_active",
   },
   modules: [Thumbs],
 });
+
 new Swiper(".recomended__carousel", {
   spaceBetween: 30,
   slidesPerView: 5,

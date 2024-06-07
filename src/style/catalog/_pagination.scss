@@ -3,14 +3,23 @@
   gap: 21px;
   align-items: center;
   justify-content: center;
+  font-size: 18px;
+
   &__arrow {
+    display: block;
     width: 18px;
     height: 18px;
-    color: $color-grey-light;
+    color: $color-primary;
+
     &_start {
     }
 
     &_end {
+    }
+
+    &[href=""] {
+      color: $color-grey-light;
+      pointer-events: none;
     }
   }
 
@@ -18,26 +27,21 @@
     display: flex;
     gap: 10px;
     align-items: center;
-  }
-
-  &__item {
-    width: 36px;
-    height: 36px;
-    margin: auto;
-
-    &_active {
-      border: 2px solid $color-main;
-      border-radius: 2px;
-    }
+    justify-content: center;
   }
 
   &__link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    font-weight: 400;
-    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    transition: border-color $transition;
+
+    &_active {
+      border-color: $color-main;
+    }
   }
 }
