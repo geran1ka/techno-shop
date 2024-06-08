@@ -32,15 +32,36 @@
     &_grey {
       color: $color-grey;
     }
+
+    &_gap {
+      margin-bottom: 40px;
+    }
   }
 
   &__order {
+    display: flex;
+    gap: 17px;
+    justify-content: space-between;
   }
 
   &__submit {
+    flex-basis: 352px;
+
+    height: 57px;
+    font-weight: 700;
+    font-size: 20px;
+    color: $color-secondary;
+    background-color: $color-main;
   }
 
   &__agree {
+    flex-basis: 292px;
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: $color-grey;
   }
 
   &__agree-link {
