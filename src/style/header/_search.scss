@@ -1,8 +1,11 @@
 .search {
   width: 100%;
-  max-width: 818px;
   height: 50px;
   position: relative;
+
+  @include mobile {
+    height: 44px;
+  }
 
   &__input {
     padding-left: 24px;
@@ -21,6 +24,10 @@
     &:focus-visible {
       border-color: $color-main;
     }
+
+    @include mobile {
+      padding-right: 44px;
+    }
   }
 
   &__input::-webkit-search-cancel-button {
@@ -31,8 +38,12 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 13px;
+    right: 26px;
     border: 0;
     background-color: transparent;
+
+    @include mobile {
+      right: 15px;
+    }
   }
 }

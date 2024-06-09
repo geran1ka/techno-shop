@@ -2,18 +2,67 @@
   padding-top: 26px;
   padding-bottom: 26px;
 
+  @include mobile {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
   &__container {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    gap: 30px;
+    gap: 32px;
+
+    @include desktop {
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    @include laptop {
+      grid-template-columns: 1fr 3fr 2fr;
+      gap: 30px;
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    @include mobile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo-link {
+    justify-self: start;
   }
 
   &__logo {
     display: block;
+
+    @include mobile {
+      width: 56px;
+    }
   }
 
   &__search {
     justify-self: center;
+    max-width: 818px;
+
+    @include desktop {
+      justify-self: start;
+      max-width: 600px;
+    }
+
+    @include laptop {
+      max-width: 100%;
+    }
+
+    @include tablet {
+      grid-column: span 2;
+      order: 1;
+    }
   }
 
   &__nav {
@@ -23,6 +72,10 @@
     max-width: 330px;
     justify-content: space-between;
     width: 100%;
+
+    @include mobile {
+      max-width: 212px;
+    }
   }
 
   &__phone {
@@ -31,8 +84,25 @@
     gap: 5px;
     font-weight: 500;
     font-size: 18px;
-  }
 
-  &__cart {
+    @include mobile {
+      font-size: 14px;
+    }
   }
 }
+
+// @include desktop {
+
+// }
+
+// @include laptop {
+
+// }
+
+// @include tablet {
+
+// }
+
+// @include mobile {
+
+// }
