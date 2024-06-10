@@ -16,7 +16,9 @@ const createItemPagination = (hrefLink, textContent, active) => {
   return li;
 };
 
-export const pagination = ({ wrapper, pages, page, count }) => {
+const pagination = ({ wrapper, pages, page, count }) => {
+  wrapper.textContent = "";
+
   const paginarionList = document.createElement("ul");
   paginarionList.className = "pagination__list";
 
@@ -82,4 +84,48 @@ export const pagination = ({ wrapper, pages, page, count }) => {
   `;
 
   wrapper.append(firstItem, paginarionList, lastItem);
+};
+
+export const startPagination = ({ paginationWrapper, pages, page }) => {
+  let isMobile = false;
+
+  if (window.innerWidth <= 560) {
+    pagination({
+      wrapper: paginationWrapper,
+      pages,
+      page,
+      count: 4,
+    });
+    isMobile = true;
+  } else {
+    pagination({
+      wrapper: paginationWrapper,
+      pages,
+      page,
+      count: 6,
+    });
+    isMobile = false;
+  }
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 560 && !isMobile) {
+      pagination({
+        wrapper: paginationWrapper,
+        pages,
+        page,
+        count: 4,
+      });
+      isMobile = true;
+    }
+
+    if (window.innerWidth > 560 && isMobile) {
+      pagination({
+        wrapper: paginationWrapper,
+        pages,
+        page,
+        count: 6,
+      });
+      isMobile = false;
+    }
+  });
 };

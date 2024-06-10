@@ -1,21 +1,80 @@
 .footer {
-  padding: 80px 0;
+  padding: 89px 0 81px;
   background-color: $color-primary;
+
+  @include laptop {
+    padding: 50px 0 54px;
+  }
+
+  @include tablet {
+    padding: 40px 0 32px;
+  }
+
+  @include mobile {
+    padding: 23px 0;
+  }
 
   &__container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr;
-    grid-template-rows: max-content min-content;
+    grid-template-areas:
+      "logo catalog customer contacts"
+      "copyright . . developer";
     gap: 30px;
     color: $color-secondary;
+
+    @include laptop {
+      grid-template-columns: 395px 235px 280px;
+      grid-template-areas:
+        "logo . ."
+        "catalog customer contacts"
+        "copyright . developer";
+      gap: 57px 30px;
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "logo ."
+        "catalog customer"
+        "catalog contacts"
+        "copyright developer";
+      gap: 40px 30px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "logo "
+        "catalog"
+        "customer"
+        "contacts"
+        "copyright"
+        "developer";
+
+      gap: 15px;
+    }
   }
 
   &__logo-link {
     place-self: start;
+    grid-area: logo;
+
+    @include tablet {
+      margin-bottom: 27px;
+    }
+
+    @include mobile {
+      margin-bottom: 15px;
+    }
   }
 
   &__logo {
     width: 146px;
+
+    @include mobile {
+      width: 100px;
+    }
   }
 
   &__column {
@@ -26,6 +85,14 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 1.3;
+
+    @include laptop {
+      margin-bottom: 20px;
+    }
+
+    @include mobile {
+      font-size: 20px;
+    }
   }
 
   &__list {
@@ -33,8 +100,16 @@
     font-size: 22px;
     line-height: 1.5;
 
+    @include mobile {
+      font-size: 14px;
+    }
+
     &_double {
       column-count: 2;
+
+      @include tablet {
+        column-count: auto;
+      }
     }
 
     &_contacts {
@@ -66,11 +141,39 @@
 
   &__social {
   }
+  &__catalog {
+    grid-area: catalog;
+  }
+
+  &__customer {
+    grid-area: customer;
+
+    @include mobile {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__contacts {
+    grid-area: contacts;
+
+    @include tablet {
+      margin-bottom: 20px;
+    }
+
+    @include mobile {
+      margin-bottom: 25px;
+    }
+  }
 
   &__copyright {
+    grid-area: copyright;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.3;
+
+    @include mobile {
+      margin-bottom: 15px;
+    }
   }
 
   &__developer {
@@ -80,7 +183,8 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 1.3;
-    grid-column: -2 / -1;
+    // grid-column: -2 / -1;
+    grid-area: developer;
   }
 
   &__text {

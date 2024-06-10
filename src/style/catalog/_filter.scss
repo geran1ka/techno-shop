@@ -33,6 +33,7 @@
   &__flex {
     display: flex;
     gap: 10px;
+    justify-content: space-between;
 
     &_column {
       flex-direction: column;
@@ -49,6 +50,10 @@
     font-size: 16px;
     height: 38px;
 
+    @include laptop {
+      width: 145px;
+    }
+
     &::placeholder {
       color: $color-grey;
     }
@@ -56,6 +61,10 @@
     &_select {
       width: 100%;
       color: $color-grey;
+
+      @include laptop {
+        width: 100%;
+      }
     }
   }
 

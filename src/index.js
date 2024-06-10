@@ -7,18 +7,25 @@ import Swiper from "swiper";
 import { Navigation, Pagination, Thumbs, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import { pagination } from "./modules/pagination";
-
-const paginationWrapper = document.querySelector(".pagination");
-const pageURL = new URL(location);
-
-const page = +pageURL.searchParams.get("page") || 1;
+import { startPagination } from "./modules/pagination";
+import { getGoods } from "./modules/goodsService";
+import { renderGoods } from "./modules/renderGoods";
+let pages = 50;
 try {
-  pagination({
-    wrapper: paginationWrapper,
-    pages: 12,
-    page: page,
-    count: 6,
+  const paginationWrapper = document.querySelector(".pagination");
+  const goodsList = document.querySelector(".goods__list");
+  const pageURL = new URL(location);
+
+  const page = +pageURL.searchParams.get("page") || 1;
+
+  goodsList.innerHTML = `
+    <div class="goods__preload">
+      <svg>Загрузка</svg>
+    </div>
+  `;
+  getGoods({ page }).then(({ goods, pages, page }) => {
+    renderGoods(goodsList, goods);
+    startPagination({ paginationWrapper, pages, page });
   });
 } catch (error) {
   console.warn("error: ", error);
