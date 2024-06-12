@@ -1,5 +1,6 @@
 .card {
   margin-bottom: 70px;
+  position: relative;
 
   &__container {
     width: 100%;
@@ -120,5 +121,20 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 1.4;
+  }
+
+  &__preload {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background-color: $color-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      transform: rotate(0);
+      animation: rotation 3s infinite linear;
+    }
   }
 }

@@ -2,11 +2,32 @@
   display: flex;
   align-items: flex-start;
 
+  @include mobile {
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 18px;
+    gap: 20px 18px;
+  }
+
   &__img {
     width: 200px;
-    height: 200px;
     object-fit: cover;
     margin-right: 30px;
+
+    @include desktop {
+      width: 137px;
+      margin-right: 8px;
+    }
+
+    @include tablet {
+      width: 104px;
+      margin-right: 18px;
+    }
+
+    @include mobile {
+      margin-right: 0;
+    }
   }
 
   &__detail {
@@ -15,6 +36,20 @@
     padding-top: 28px;
     flex-basis: 353px;
     margin-right: 25px;
+
+    @include desktop {
+      padding-top: 0;
+      flex-basis: 320px;
+    }
+
+    @include tablet {
+      flex-basis: 160px;
+      margin-right: 7px;
+    }
+
+    @include mobile {
+      margin-right: 0;
+    }
   }
 
   &__title {
@@ -22,27 +57,47 @@
     margin-bottom: 14px;
     font-weight: 700;
     font-size: 22px;
+
+    @include desktop {
+      min-height: auto;
+    }
+
+    @include tablet {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
   }
 
   &__vender-code {
     font-weight: 500;
     font-size: 18px;
+
+    @include tablet {
+      font-size: 12px;
+    }
   }
 
   &__control {
     display: flex;
     justify-content: space-between;
+    align-self: center;
     align-items: center;
     flex-grow: 1;
-    align-self: center;
+    gap: 10px;
+
+    @include mobile {
+      justify-content: start;
+      gap: 39px;
+    }
   }
 
   &__count {
     display: flex;
     max-width: 120px;
     width: 100%;
+    align-items: center;
     justify-content: space-between;
-    margin-right: 70px;
+    gap: 10px;
   }
 
   &__btn {
@@ -63,19 +118,33 @@
 
   &__number {
     font-size: 30px;
+
+    @include tablet {
+      font-size: 24px;
+    }
   }
 
   &__price {
     font-weight: 500;
     font-size: 22px;
     text-wrap: nowrap;
+    white-space: nowrap;
   }
 
   &__remove-cart {
-    width: 32px;
+    max-width: 32px;
     height: 32px;
     border: none;
     background-color: transparent;
     color: $color-grey-light;
+
+    @include mobile {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      min-width: 18px;
+      width: 18px;
+      height: 18px;
+    }
   }
 }

@@ -4,6 +4,16 @@
     grid-template-columns: 3fr 2fr;
     gap: 70px 30px;
     justify-content: space-between;
+
+    @include desktop {
+      grid-template-columns: minmax(59%, 848px) minmax(34%, 494px);
+      column-gap: 20px;
+    }
+
+    @include laptop {
+      grid-template-columns: 1fr;
+      row-gap: 50px;
+    }
   }
 
   &__address {
@@ -12,9 +22,18 @@
   &__title {
     font-weight: 700;
     font-size: 44px;
+
+    @include mobile {
+      font-size: 30px;
+    }
   }
 
   &__total {
     padding-top: 94px;
+
+    @include laptop {
+      padding-top: 0;
+      order: 1;
+    }
   }
 }

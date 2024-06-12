@@ -41,6 +41,26 @@
     }
   }
 
+  &__label-select {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 33px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+      width: 18px;
+      height: 18px;
+      background-image: url("../../img/arrow-down.svg");
+    }
+
+    &_active::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
   &__input {
     width: 165px;
     padding-left: 10px;
@@ -61,6 +81,7 @@
     &_select {
       width: 100%;
       color: $color-grey;
+      appearance: none;
 
       @include laptop {
         width: 100%;
