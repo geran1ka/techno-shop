@@ -1,9 +1,22 @@
 import { getCategory, getGoods } from "./goodsService";
+import { showOverlay } from "./overlay";
 import { startPagination } from "./pagination";
 import { renderGoods } from "./renderGoods";
 
+const toggleFilter = (filter, catalogFilterBtn) => {
+  catalogFilterBtn.addEventListener("click", () => {
+    filter.classList.toggle("filter_show");
+    showOverlay();
+  });
+};
+
 export const filter = (goodsList, paginationWrapper) => {
+  const filter = document.querySelector(".filter");
+  const catalogFilterBtn = document.querySelector(".catalog__filter-btn");
+  console.log("catalogFilterBtn: ", catalogFilterBtn);
   const category = document.querySelector("#category");
+
+  toggleFilter(filter, catalogFilterBtn);
 
   getCategory().then((categoryList) => {
     for (const categoryListKey in categoryList) {

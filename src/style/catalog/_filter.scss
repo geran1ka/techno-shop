@@ -2,6 +2,20 @@
   max-width: 340px;
   padding-top: 78px;
 
+  @include tablet {
+    display: none;
+    position: absolute;
+    background-color: $color-secondary;
+    top: 0;
+    right: 0;
+    z-index: 555;
+    padding: 14px 20px 26px;
+
+    &_show {
+      display: block;
+    }
+  }
+
   &__form {
     position: relative;
   }

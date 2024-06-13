@@ -1,5 +1,9 @@
 .catalog {
   &__container {
+    position: relative;
+  }
+
+  &__wrapper {
     display: grid;
     grid-template-columns: 1fr 340px;
     gap: 72px 30px;
@@ -34,12 +38,34 @@
   }
 
   &__filter {
-    @include tablet {
-      display: none;
-    }
   }
 
   &__pagination {
     grid-column: 1 / -1;
+  }
+
+  &__filter-btn {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-weight: 700;
+      font-size: 22px;
+      background-color: transparent;
+      border: 0;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-image: url("../../img/arrow-down.svg");
+      }
+    }
   }
 }
