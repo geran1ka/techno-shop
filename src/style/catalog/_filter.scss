@@ -24,6 +24,27 @@
     margin-bottom: 30px;
     font-weight: 700;
     font-size: 26px;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      justify-content: end;
+      font-weight: 700;
+      font-size: 22px;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 18px;
+        transform: rotate(180deg);
+        background-image: url("../../img/arrow-down.svg");
+      }
+    }
   }
 
   &__fields-list {
@@ -119,6 +140,12 @@
     color: $color-grey;
     background-color: transparent;
     border: 0;
+
+    @include tablet {
+      position: static;
+      display: block;
+      margin: 0 auto;
+    }
   }
 
   &__apply {
@@ -130,5 +157,9 @@
     font-weight: 500;
     font-size: 16px;
     border: none;
+
+    @include tablet {
+      margin-bottom: 15px;
+    }
   }
 }

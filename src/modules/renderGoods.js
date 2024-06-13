@@ -3,8 +3,6 @@ import { API_URL } from "./const";
 export const renderGoods = (wrapper, goods) => {
   wrapper.textContent = "";
 
-  console.log("goods.lenght: ", goods.lenght);
-
   if (!goods.length) {
     wrapper.innerHTML = `
       <h2 class="goods__empty">Нет товаров по вашему запросу</h2>

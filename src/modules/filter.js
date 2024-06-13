@@ -1,22 +1,27 @@
 import { getCategory, getGoods } from "./goodsService";
-import { showOverlay } from "./overlay";
+import { hideOverlay, showOverlay } from "./overlay";
 import { startPagination } from "./pagination";
 import { renderGoods } from "./renderGoods";
 
-const toggleFilter = (filter, catalogFilterBtn) => {
+const toggleFilter = (filter, catalogFilterBtn, filterTitle) => {
   catalogFilterBtn.addEventListener("click", () => {
-    filter.classList.toggle("filter_show");
+    filter.classList.add("filter_show");
     showOverlay();
+  });
+
+  filterTitle.addEventListener("click", () => {
+    filter.classList.remove("filter_show");
+    hideOverlay();
   });
 };
 
 export const filter = (goodsList, paginationWrapper) => {
   const filter = document.querySelector(".filter");
   const catalogFilterBtn = document.querySelector(".catalog__filter-btn");
-  console.log("catalogFilterBtn: ", catalogFilterBtn);
+  const filterTitle = document.querySelector(".filter__title");
   const category = document.querySelector("#category");
 
-  toggleFilter(filter, catalogFilterBtn);
+  toggleFilter(filter, catalogFilterBtn, filterTitle);
 
   getCategory().then((categoryList) => {
     for (const categoryListKey in categoryList) {
@@ -79,6 +84,9 @@ export const filter = (goodsList, paginationWrapper) => {
     history.pushState(null, null, url);
 
     getGoods().then(({ goods, pages, page }) => {
+      filter.classList.remove("filter_show");
+      console.log("hideOverlay");
+      hideOverlay();
       renderGoods(goodsList, goods);
       startPagination({ paginationWrapper, pages, page });
     });
