@@ -107,7 +107,18 @@
     line-height: 1;
     border-radius: 50%;
     border: 1px solid $color-primary;
+    outline: none;
     background-color: transparent;
+    transition: border-color $transition, color $transition;
+
+    &:hover {
+      border-color: $color-main;
+      color: $color-main;
+    }
+
+    &:focus-visible {
+      border-color: $color-main;
+    }
 
     &_decrement {
     }
@@ -137,6 +148,15 @@
     border: none;
     background-color: transparent;
     color: $color-grey-light;
+    outline: 1px solid transparent;
+
+    &:focus-visible {
+      outline-color: $color-main;
+    }
+
+    &:hover {
+      color: $color-main;
+    }
 
     @include mobile {
       position: absolute;

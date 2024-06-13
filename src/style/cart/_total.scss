@@ -101,6 +101,21 @@
     font-size: 20px;
     color: $color-secondary;
     background-color: $color-main;
+    outline: none;
+    border: 1px solid transparent;
+    transition: border-color $transition, background-color $transition;
+
+    &:focus-visible {
+      border-color: $color-main-dark;
+    }
+
+    &:hover {
+      background-color: $color-main-sub;
+    }
+
+    &:disabled {
+      background-color: $color-grey-light;
+    }
 
     @include mobile {
       font-size: 12px;

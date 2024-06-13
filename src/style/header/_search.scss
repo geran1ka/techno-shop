@@ -41,9 +41,21 @@
     right: 26px;
     border: 0;
     background-color: transparent;
+    outline-offset: 3px;
+    border-radius: 5px;
+    outline: 1px solid transparent;
+    transition: outline-color $transition, color $transition;
+
+    &:focus-visible {
+      outline-color: $color-main;
+    }
 
     @include mobile {
       right: 15px;
     }
+  }
+
+  &__input:hover + &__btn {
+    color: $color-main;
   }
 }
