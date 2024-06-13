@@ -11,14 +11,16 @@ import { startPagination } from "./modules/pagination";
 import { getGoods, getGoodsItem } from "./modules/goodsService";
 import { renderGoods } from "./modules/renderGoods";
 import { renderItem } from "./modules/renderItem";
+import { filter } from "./modules/filter";
+import { footerCategory } from "./modules/footerCategory";
 let pages = 50;
 try {
   const goodsList = document.querySelector(".goods__list");
+  footerCategory();
+
   if (goodsList) {
     const paginationWrapper = document.querySelector(".pagination");
-    const pageURL = new URL(location);
-
-    const page = +pageURL.searchParams.get("page") || 1;
+    filter(goodsList, paginationWrapper);
 
     goodsList.innerHTML = `
     <div class="goods__preload">
@@ -27,7 +29,7 @@ try {
       </svg>
     </div>
   `;
-    getGoods({ page }).then(({ goods, pages, page }) => {
+    getGoods().then(({ goods, pages, page }) => {
       renderGoods(goodsList, goods);
       startPagination({ paginationWrapper, pages, page });
     });
@@ -38,7 +40,6 @@ try {
 
 try {
   const card = document.querySelector(".card");
-  console.log("card: ", card);
 
   if (card) {
     const pageURL = new URL(location);

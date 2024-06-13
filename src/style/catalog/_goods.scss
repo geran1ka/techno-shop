@@ -30,4 +30,8 @@
       animation: rotation 3s infinite linear;
     }
   }
+
+  &__empty {
+    grid-column: 1 / -1;
+  }
 }

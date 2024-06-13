@@ -66,6 +66,23 @@
     padding: 8px 20px;
     font-weight: 500;
     font-size: 16px;
+    transition: background-color $transition;
+    outline: none;
+
+    &:focus-visible {
+      background-color: $color-main-sub;
+      border-color: $color-main-sub;
+    }
+
+    &:hover {
+      background-color: $color-main;
+      border-color: $color-main;
+    }
+
+    &:disabled {
+      background-color: $color-grey-light;
+      border-color: $color-main-sub;
+    }
 
     @include mobile {
       font-size: 12px;
