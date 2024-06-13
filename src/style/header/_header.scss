@@ -102,10 +102,27 @@
   }
 
   &__cart {
+    position: relative;
     outline: 1px solid transparent;
     outline-offset: 3px;
     border-radius: 10px;
     transition: outline-color $transition, color $transition;
+
+    &::after {
+      content: attr(data-count);
+      position: absolute;
+      right: -8px;
+      bottom: -8px;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: $color-main;
+      color: $color-primary;
+      width: 22px;
+      height: 22px;
+    }
 
     &:focus-visible {
       outline-color: $color-main;

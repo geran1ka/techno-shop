@@ -13,6 +13,7 @@ import { renderGoods } from "./modules/renderGoods";
 import { renderItem } from "./modules/renderItem";
 import { filter } from "./modules/filter";
 import { footerCategory } from "./modules/footerCategory";
+import { cartControl } from "./modules/cartControll";
 let pages = 50;
 try {
   const goodsList = document.querySelector(".goods__list");
@@ -32,6 +33,11 @@ try {
     getGoods().then(({ goods, pages, page }) => {
       renderGoods(goodsList, goods);
       startPagination({ paginationWrapper, pages, page });
+      cartControl({
+        wrapper: goodsList,
+        classAdd: "goods-item__btn-ad-cart",
+        classDelete: "goods-item__btn-ad-cart_remove",
+      });
     });
   }
 } catch (error) {

@@ -84,6 +84,11 @@
       border-color: $color-main-sub;
     }
 
+    &_remove {
+      color: $color-secondary;
+      background-color: $color-primary;
+    }
+
     @include mobile {
       font-size: 12px;
     }

@@ -85,7 +85,6 @@ export const filter = (goodsList, paginationWrapper) => {
 
     getGoods().then(({ goods, pages, page }) => {
       filter.classList.remove("filter_show");
-      console.log("hideOverlay");
       hideOverlay();
       renderGoods(goodsList, goods);
       startPagination({ paginationWrapper, pages, page });
