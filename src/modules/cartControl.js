@@ -18,7 +18,7 @@ const removeToCart = (id) => {
   setLocalStorage("cart-ts", cartGoods);
 };
 
-const checkItems = (classDelete) => {
+const checkItems = ({ classDelete, classAdd, classCount } = {}) => {
   const cartGoods = getLocalStorage("cart-ts");
 
   let count = 0;
@@ -45,10 +45,17 @@ const checkItems = (classDelete) => {
       }
     });
   }
+
+  if (classAdd && classCount) {
+    const countElem = document.querySelector(`.${classCount}`);
+    const addElem = document.querySelector(`.${classAdd}`);
+
+    countElem.value = cartGoods[addElem.dataset.idGoods] || 1;
+  }
 };
 
-export const cartControl = ({ wrapper, classAdd, classDelete }) => {
-  checkItems(classDelete);
+export const cartControl = ({ wrapper, classAdd, classDelete, classCount }) => {
+  checkItems({ classDelete, classCount, classAdd });
 
   if (wrapper) {
     wrapper.addEventListener("click", (e) => {
@@ -64,7 +71,19 @@ export const cartControl = ({ wrapper, classAdd, classDelete }) => {
         addToCart(id);
       }
 
-      checkItems(classDelete);
+      checkItems({ classDelete });
+    });
+  } else {
+    const btn = document.querySelector(`.${classAdd}`);
+    const id = btn.dataset.idGoods;
+
+    const countElem = document.querySelector(`.${classCount}`);
+
+    btn.addEventListener("click", () => {
+      const count = +countElem.value;
+
+      addToCart(id, count);
+      checkItems({ classAdd, id });
     });
   }
 };

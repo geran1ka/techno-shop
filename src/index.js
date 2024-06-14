@@ -13,7 +13,8 @@ import { renderGoods } from "./modules/renderGoods";
 import { renderItem } from "./modules/renderItem";
 import { filter } from "./modules/filter";
 import { footerCategory } from "./modules/footerCategory";
-import { cartControl } from "./modules/cartControll";
+import { cartControl } from "./modules/cartControl";
+import { serviceCounter } from "./modules/counterControl";
 let pages = 50;
 try {
   const goodsList = document.querySelector(".goods__list");
@@ -62,9 +63,20 @@ try {
 
     card.append(preload);
 
+    serviceCounter({
+      selectorWrapper: ".card__count",
+      selectorNumber: ".card__number ",
+      selectorDecrement: ".card__btn_decrement",
+      selectorIncrement: ".card__btn_increment",
+    });
+
     getGoodsItem(id)
       .then((item) => {
         renderItem(item);
+        cartControl({
+          classAdd: "card__add-cart",
+          classCount: "card__number",
+        });
         preload.remove();
         return item.category;
       })
