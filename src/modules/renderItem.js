@@ -125,11 +125,22 @@ export const renderItem = ({
   cardDescription.append(...createDescriptionText(description));
 
   const thumbSwiper = new Swiper(cardSliderThumb, {
-    spaceBetween: 44,
+    spaceBetween: 15,
     slidesPerView: 3,
     scrollbar: {
       el: swiperScrollBar,
       draggable: true,
+    },
+    breakpoints: {
+      768: {
+        spaceBetween: 20,
+      },
+      1024: {
+        spaceBetween: 27,
+      },
+      1600: {
+        spaceBetween: 44,
+      },
     },
     modules: [Scrollbar],
   });
@@ -144,27 +155,3 @@ export const renderItem = ({
     modules: [Thumbs],
   });
 };
-{
-  /* <div class="card__info">
-              <h2 class="card__title">Спортивные часы Garmin Venu</h2>
-
-              <p class="card__vendor-code">Артикул: 654651968</p>
-
-              <div class="card__control">
-                <div class="card__count">
-                  <button class="card__btn card__btn_decrement">–</button>
-                  <output class="card__number">1</output>
-                  <button class="card__btn card__btn_increment">+</button>
-                </div>
-
-                <p class="card__price">21 990 ₽</p>
-
-                <button class="card__add-cart">В корзину</button>
-              </div>
-
-              <ul class="card__params-list">
-                <li class="card__params-item">
-                  <span>Производитель:</span>
-                  <span>Garmin</span>
-                </li> */
-}

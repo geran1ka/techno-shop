@@ -167,4 +167,12 @@
       height: 18px;
     }
   }
+
+  &__empty {
+    font-size: 30px;
+
+    @include tablet {
+      font-size: 22px;
+    }
+  }
 }

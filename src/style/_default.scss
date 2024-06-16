@@ -118,6 +118,7 @@ iframe {
 }
 
 .main {
+  position: relative;
   padding-top: 44px;
   padding-bottom: 120px;
 
@@ -129,5 +130,20 @@ iframe {
   @include mobile {
     padding-top: 35px;
     padding-bottom: 120px;
+  }
+}
+
+.preload {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background-color: $color-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    transform: rotate(0);
+    animation: rotation 3s infinite linear;
   }
 }
